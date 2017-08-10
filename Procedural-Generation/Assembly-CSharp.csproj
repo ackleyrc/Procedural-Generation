@@ -51,7 +51,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Maze.cs" />
+     <Compile Include="Assets\Scripts\Coords.cs" />
+     <Compile Include="Assets\Scripts\Maze_v1.cs" />
+     <Compile Include="Assets\Scripts\Maze_v2.cs" />
+     <Compile Include="Assets\Scripts\Node.cs" />
+     <Compile Include="Assets\Scripts\Tiles.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

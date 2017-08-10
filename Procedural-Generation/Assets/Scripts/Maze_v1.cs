@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Maze : MonoBehaviour {
+public class Maze_v1 : MonoBehaviour {
 
 	public struct Coords
 	{
