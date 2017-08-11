@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Maze_v2 : MonoBehaviour
 {
-	public int numNodeRows = 2;
-	public int numNodeCols = 2;
+	public int numNodeRows = 5;
+	public int numNodeCols = 5;
 
 	void Start()
 	{
@@ -44,7 +44,6 @@ public class Maze_v2 : MonoBehaviour
 		do
 		{
 			doNumAttempts++;
-			// Debug.Log("doNumAttempts: " + doNumAttempts);
 
 			// Set the current node to path and inform its neighbors
 			if (Node.Type.Path != currentNode.type) {
@@ -97,11 +96,8 @@ public class Maze_v2 : MonoBehaviour
 	public void SetNode(Node node, Node.Type nodeType)
 	// public void SetNode(Coords nodeCoords, NodeType nodeType)
 	{
-		// Debug.Log ("SetNode(" + node + ", " + nodeType.ToString () + ")");
-
 		// Set the node accordingly
 		node.type = nodeType;
-		// Debug.Log ("node.nodeType: " + node.type);
 
 		// Remove this node from its neighbors' lists of closed neighbors, if setting to open
 		if (Node.Type.Path == nodeType || Node.Type.Room == nodeType)
@@ -116,13 +112,12 @@ public class Maze_v2 : MonoBehaviour
 				}
 			}
 
-			// Debug.Log ("Removing " + node + " from neighbors' closedNeighbors");
+			// Removing node from neighbors' closedNeighbors
 			foreach (Coords.Direction neighborDirection in node.neighbors)
 			{
 				// Get the neighboring node in each neighboring direction
 				Coords neighborCoords = Coords.Displaced(node.coords, neighborDirection);
 				Node neighbor = Node.nodes [Node.GetIndex (neighborCoords)];
-				// Debug.Log ("neighbor: " + neighbor);
 
 				if (neighbor.closedNeighbors.Count > 0)
 				{
@@ -135,14 +130,9 @@ public class Maze_v2 : MonoBehaviour
 						// If no more closed neighbors, remove this node from the global list
 						if (0 == neighbor.closedNeighbors.Count)
 						{
-							// Debug.Log ("neighbor.closedNeighbors.Count == 0");
 							Node.pathsWithClosedNeighbor.Remove (Node.GetIndex (neighbor.coords));
 						}
 					}
-				}
-				else
-				{
-					// Debug.Log ("neighbor.closedNeighbors.Count == 0");
 				}
 			}
 		}

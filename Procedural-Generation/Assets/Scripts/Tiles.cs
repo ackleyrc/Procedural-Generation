@@ -28,7 +28,6 @@ public class Tiles : MonoBehaviour
 	
 	public void GenerateTiles()
 	{
-		// Debug.Log ("GenerateTiles()");
 		InitializeTiles ();
 
 		// Set the origin tile
@@ -49,12 +48,8 @@ public class Tiles : MonoBehaviour
 		// For each node, set the four tiles at, North of, East of, and NorthEast of the node
 		for (int index = 0; index < Node.nodes.Count; index++)
 		{
-			// Debug.Log ("index: " + index);
 			Node node = Node.nodes [index];
-			// Debug.Log ("node: " + node);
-			// Debug.Log ("node.type: " + node.type);
 			Coords tileCoordsAtNode = GetCoords (node.coords);
-			// Debug.Log ("tileCoordsAtNode: " + tileCoordsAtNode);
 
 			if (Node.Type.Path == node.type || Node.Type.Room == node.type)
 			{
@@ -105,22 +100,21 @@ public class Tiles : MonoBehaviour
 
 	public void SetTile(Coords coords, Type type)
 	{	
-		// Debug.Log ("SetTile( " + coords + ", " + type.ToString() + " )");
 		int index = coords.row * _TILE_COLS + coords.col;
 		tiles [index] = type;
-		// Debug.Log ("tiles [" + index + "]: " + tiles [index]);
+
 		Vector3 position = new Vector3 (0, coords.row * TILE_SIZE, coords.col * TILE_SIZE);
 		Quaternion rotation = Quaternion.identity;
 		Transform parent = this.transform;
 		if (Type.Open == type)
 		{ 
-			// Debug.Log ("Creating Open Tile");
+			// Creating Open Tile
 			GameObject tile = GameObject.Instantiate (this.pathObject, position, rotation, parent);
 			tile.transform.localScale = Vector3.one * TILE_SIZE;
 		}
 		else
 		{
-			// Debug.Log ("Creating Closed Tile");
+			// Creating Closed Tile
 			GameObject tile = GameObject.Instantiate (this.wallObject, position, rotation, parent);
 			tile.transform.localScale = Vector3.one * TILE_SIZE;
 		}

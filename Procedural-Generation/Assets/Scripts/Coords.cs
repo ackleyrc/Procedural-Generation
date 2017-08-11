@@ -70,6 +70,11 @@ public class Coords
 
 	public static Coords Displaced(Coords coords, Direction direction)
 	{
-		return coords + displacement [direction];
+		return Displaced(coords, direction, 1);
+	}
+
+	public static Coords Displaced(Coords coords, Direction direction, int distance)
+	{
+		return coords + (displacement [direction] * distance);
 	}
 }

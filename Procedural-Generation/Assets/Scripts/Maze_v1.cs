@@ -126,48 +126,34 @@ public class Maze_v1 : MonoBehaviour {
 
 	public void GeneratePath(Coords start)
 	{
-		// Debug.Log ("GeneratePath(" + start + ")");
 		bool continuePath = true;
 		Coords currentCoords = start;
 		if (Tile.Path != GetTile(currentCoords)) {
 			SetTile (currentCoords, Tile.Path);
 		}
-		// Debug.Log ("currentCoords: " + currentCoords);
+
 		int doNumAttempts = 0;
 		int doMaxAttempts = _GRID_ROWS * _GRID_COLS;
 		do
 		{
 			doNumAttempts++;
-			// Debug.Log("doNumAttempts: " + doNumAttempts);
 			List<int> potentialDirections = new List<int> { 0, 1, 2, 3 };
-			string indexes = "";
-			for (int i = 0; i < potentialDirections.Count; i++) {
-				indexes += (Direction) potentialDirections[i] + " ";
-			}
-			// Debug.Log("potentialDirections: " + indexes);
 			while (potentialDirections.Count > 0)
 			{
 				int randIndex = Random.Range(0, potentialDirections.Count);
 				Direction randomDirection = (Direction) potentialDirections[randIndex];
-				// Debug.Log("randomDirection: " + randomDirection);
 				if (false == IsValid (randomDirection, currentCoords)) {
 					potentialDirections.Remove ((int)randomDirection);
-					indexes = "";
-					for (int i = 0; i < potentialDirections.Count; i++) {
-						indexes += (Direction) potentialDirections[i] + " ";
-					}
-					// Debug.Log("potentialDirections: " + indexes);
 				} else {
 					SetTile (currentCoords + displacement [randomDirection], Tile.Path);
 					SetTile (currentCoords + (displacement [randomDirection] * 2), Tile.Path);
 					currentCoords = currentCoords + (displacement [randomDirection] * 2);
-					// Debug.Log ("currentCoords: " + currentCoords);
 					break;
 				}
 			}
+
 			if (0 == potentialDirections.Count)
 			{
-				// Debug.Log("potentialDirections.Count: " + potentialDirections.Count);
 				continuePath = false;
 			}
 		}
@@ -177,15 +163,14 @@ public class Maze_v1 : MonoBehaviour {
 	public bool IsValid(Direction dir, Coords curCoords)
 	{
 		Coords targetCoords = curCoords + (displacement [dir] * 2);
-		// Debug.Log ("targetCoords: " + targetCoords);
 		if (targetCoords.row < 0 || targetCoords.row >= _GRID_ROWS || targetCoords.col < 0 || targetCoords.col >= _GRID_COLS)
 		{
-			// Debug.Log ("targetCoords outside grid");
+			// targetCoords outside grid
 			return false;
 		}
 		else if (Tile.Path == GetTile (targetCoords))
 		{
-			// Debug.Log ("targetCoords is already a path");
+			// targetCoords is already a path
 			return false;
 		}
 		else
@@ -194,17 +179,12 @@ public class Maze_v1 : MonoBehaviour {
 			{
 				Coords targetNeighorCoords = targetCoords + displacement [(Direction)i];
 				if (targetNeighorCoords.row < 0 || targetNeighorCoords.row >= _GRID_ROWS || targetNeighorCoords.col < 0 || targetNeighorCoords.col >= _GRID_COLS) {
-					// Debug.Log (((Direction)i).ToString() + " targetNeighorCoords: " + targetNeighorCoords);
-					// Debug.Log (((Direction)i).ToString() + " targetNeighorCoords outside grid");
 					continue;
 				}
 				if (Tile.Path == GetTile(targetNeighorCoords)) {
-					// Debug.Log (((Direction)i).ToString() + " targetNeighorCoords: " + targetNeighorCoords);
-					// Debug.Log (((Direction)i).ToString() + "targetNeighorCoords is already a path");
 					return false;
 				}
 			}
-			// Debug.Log ("targetCoords is valid");
 			return true;
 		}
 	}
@@ -241,7 +221,6 @@ public class Maze_v1 : MonoBehaviour {
 			{
 				if (!setNodes.Contains (index))
 				{
-					// Debug.Log ("Setting node at: " + GetCoords (index));
 					setNodes.Add (index);
 				}
 				if (unsetNodes.Contains (index))
