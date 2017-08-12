@@ -63,7 +63,7 @@ public class DemoManager : MonoBehaviour {
 			{ StepTime.wait0_25Sec, 0.25f },
 			{ StepTime.wait0_125Sec, 0.125f },
 			{ StepTime.wait0_0625Sec, 0.0625f },
-			{ StepTime.wait0_03125Sec, 0.03125f },
+			{ StepTime.wait0_03125Sec, 0.03125f }
 		};
 
 		currentWait = waits[(int) currentStepTime];

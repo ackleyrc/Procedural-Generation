@@ -1,15 +1,16 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Node.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Maze_v3.cs">
     <Files>
-      <File FileName="Assets/Scripts/DemoManager.cs" Line="78" Column="1" />
-      <File FileName="Assets/Scripts/MazeDemo.cs" Line="120" Column="35" />
-      <File FileName="Assets/Scripts/TilesDemo.cs" Line="41" Column="4" />
-      <File FileName="Assets/Scripts/Fade.cs" Line="54" Column="3" />
-      <File FileName="Assets/Scripts/Maze_v2.cs" Line="136" Column="6" />
-      <File FileName="Assets/Scripts/Maze_v1.cs" Line="152" Column="6" />
-      <File FileName="Assets/Scripts/Tiles.cs" Line="111" Column="20" />
-      <File FileName="Assets/Scripts/Coords.cs" Line="73" Column="42" />
+      <File FileName="Assets/Scripts/Maze_v3.cs" Line="97" Column="4" />
+      <File FileName="Assets/Scripts/DemoManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/MazeDemo.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/TilesDemo.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Fade.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Maze_v2.cs" Line="122" Column="40" />
+      <File FileName="Assets/Scripts/Maze_v1.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Tiles.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Coords.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Node.cs" Line="79" Column="34" />
     </Files>
   </MonoDevelop.Ide.Workbench>
