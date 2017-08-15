@@ -320,7 +320,7 @@ MonoBehaviour:
   numNodeRows: 30
   numNodeCols: 30
   targetSegmentLengthMin: 2
-  targetPathLengthMax: 30
+  targetPathLengthMax: 20
 --- !u!4 &1609266169
 Transform:
   m_ObjectHideFlags: 0

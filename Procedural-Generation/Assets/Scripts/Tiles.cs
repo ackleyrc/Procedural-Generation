@@ -137,7 +137,7 @@ public class Tiles : MonoBehaviour
 	private void InitializeTiles()
 	{
 		_TILE_ROWS = (Node.GetRows() * 2) + 1;
-		_TILE_COLS = (Node.GetRows() * 2) + 1;
+		_TILE_COLS = (Node.GetCols() * 2) + 1;
 		Debug.Log ("Tile Rows, Cols: " + _TILE_ROWS + ", " + _TILE_COLS);
 
 		tiles = new Type[_TILE_ROWS * _TILE_COLS];
